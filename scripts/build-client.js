@@ -10,6 +10,7 @@ let results = await esbuild.build({
   logLevel: 'info',
   // platform: 'node',
   metafile: true,
+  format: 'esm',
   outdir: 'client/',
 })
 

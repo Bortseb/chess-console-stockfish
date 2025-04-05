@@ -112,6 +112,10 @@
             playerName: "Player"
         }
     })
+    const pgn = `
+          [SetUp "1"]
+          [FEN "4k2r/1P4P1/8/8/8/8/1p1N4/4K3 w - - 0 1"]
+          `
     const chessConsole = new ChessConsole(
         document.getElementById("console-container"),
         {name: i18n.t("playerName"), type: LocalPlayer},
@@ -124,11 +128,21 @@
             }
         })
     new Board(chessConsole, {
-        assetsUrl: "./node_modules/cm-chessboard/assets/"
+        assetsUrl: "./node_modules/cm-chessboard/assets/",
+        style: {
+                cssClass: "green",
+                borderType: 'frame',
+                showCoordinates: true,
+                pieces: { file: "pieces/staunty.svg" }
+            }
     }).initialized.then(() => {
         new Persistence(chessConsole, {
             savePrefix: "Stockfish"
         }).load()
+        chessConsole.initGame({
+                playerColor: "w",
+                pgn: pgn
+            })
     })
     new History(chessConsole)
     new HistoryControl(chessConsole)
