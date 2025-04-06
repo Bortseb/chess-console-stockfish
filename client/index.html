@@ -12,7 +12,7 @@
 
 <body>
     <div class="container-fluid">
-        <h1>Stockfish3 for <a href="https://github.com/shaack/chess-console">chess-console</a></h1>
+        <h1>Stockfish for <a href="https://github.com/shaack/chess-console">chess-console</a></h1>
         <div id="console-container" class="mb-3">
             <div class="row chess-console">
                 <div class="chess-console-center col-xl-7 order-xl-2 col-lg-8 order-lg-1 order-md-1 col-md-12">
@@ -72,24 +72,7 @@
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/es-module-shims@1.7.2/dist/es-module-shims.min.js"></script>
-    <!-- @formatter:off -->
-    <!-- <script type="importmap">
-    {
-        "imports": {
-            "chess-console/": "./node_modules/chess-console/",
-            "cm-engine-runner/": "./node_modules/cm-engine-runner/",
-            "cm-polyglot/": "./node_modules/cm-polyglot/",
-            "cm-chessboard/": "./node_modules/cm-chessboard/",
-            "cm-web-modules/": "./node_modules/cm-web-modules/",
-            "chess.mjs/": "./node_modules/chess.mjs/",
-            "cm-pgn/": "./node_modules/cm-pgn/",
-            "cm-chess/": "./node_modules/cm-chess/",
-            "bootstrap-show-modal/": "./node_modules/bootstrap-show-modal/"
-        }
-    }
-</script> -->
-    <!-- @formatter:on -->
-    <script type="module" src="./chess-console-stockfish.js"></script>
+
     <script type="module">
 
         import { ChessConsole } from "./chess-console-stockfish.js"
@@ -125,7 +108,7 @@
             { name: i18n.t("playerName"), type: LocalPlayer },
             {
                 name: "Stockfish", type: StockfishPlayer, props: {
-                    worker: "./node_modules/cm-engine-runner/engines/stockfish-v10-niklasf.js",
+                    worker: "./stockfish-niklasf-v10.js",
                     book: "./assets/books/openings.bin",
                     level: 1,
                     debug: true
@@ -151,6 +134,7 @@
         new History(chessConsole)
         new HistoryControl(chessConsole)
         new CapturedPieces(chessConsole)
+        console.log(`player`, chessConsole.opponent)
         new StockfishGameControl(chessConsole, {
             player: chessConsole.opponent
         })
