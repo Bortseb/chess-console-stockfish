@@ -29,5 +29,8 @@
     "chess-console": "^6.10.0",
     "cm-engine-runner": "^1.2.0",
     "cm-web-modules": "^2.1.3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
   }
 }

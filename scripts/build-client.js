@@ -5,10 +5,9 @@ import fs from 'node:fs/promises'
 let results = await esbuild.build({
   entryPoints: ['./src/chess-console-stockfish.js'],
   bundle: true,
-  // minify: true,
+  minify: true,
   sourcemap: true,
   logLevel: 'info',
-  // platform: 'node',
   metafile: true,
   format: 'esm',
   outdir: 'client/',

@@ -6,13 +6,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="./assets/styles/screen.css" />
 </head>
 
 <body>
     <div class="container-fluid">
-        <h1>Stockfish for <a href="https://github.com/shaack/chess-console">chess-console</a></h1>
+        <h1>Stockfish4 for <a href="https://github.com/shaack/chess-console">chess-console</a></h1>
         <div id="console-container" class="mb-3">
             <div class="row chess-console">
                 <div class="chess-console-center col-xl-7 order-xl-2 col-lg-8 order-lg-1 order-md-1 col-md-12">
@@ -72,7 +73,6 @@
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/es-module-shims@1.7.2/dist/es-module-shims.min.js"></script>
-
     <script type="module">
 
         import { ChessConsole } from "./chess-console-stockfish.js"
@@ -88,6 +88,7 @@
         import { StockfishGameControl } from "./chess-console-stockfish.js"
         import { StockfishPlayer } from "./chess-console-stockfish.js"
         import { StockfishStateView } from "./chess-console-stockfish.js"
+        import { StockfishNewGameDialog } from "./chess-console-stockfish.js"
         import { I18n } from "./chess-console-stockfish.js"
 
         const i18n = new I18n()
@@ -134,7 +135,6 @@
         new History(chessConsole)
         new HistoryControl(chessConsole)
         new CapturedPieces(chessConsole)
-        console.log(`player`, chessConsole.opponent)
         new StockfishGameControl(chessConsole, {
             player: chessConsole.opponent
         })
